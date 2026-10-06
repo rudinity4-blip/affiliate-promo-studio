@@ -1,29 +1,37 @@
 # Troubleshooting
 
-## 404 saat refresh
+## 404 saat refresh di Workers
 
-Pastikan host memakai `public/_redirects` berisi `/* /index.html 200`. Untuk Workers, gunakan `not_found_handling: single-page-application` di `wrangler.jsonc`.
+Deployment tahap ini memakai Workers Static Assets. Pastikan `wrangler.jsonc` memiliki `assets.directory` ke `./dist/public` dan `not_found_handling` bernilai `single-page-application`. Jangan menambahkan `public/_redirects`; file tersebut sengaja tidak dipakai.
 
-## Versi lama masih muncul
+## 429 atau RESOURCE_EXHAUSTED
 
-Service worker memakai cache berdasarkan versi. Buka DevTools, pilih Application, lakukan **Unregister** pada service worker lalu reload dengan cache dibersihkan. Deployment berikutnya dapat menaikkan `CACHE_NAME`.
+Kuota dihitung per project, bukan per key. Key dari project yang sama tidak menambah kuota. Gunakan cadangan dari project berbeda milik Anda sendiri, tunggu cooldown 60 detik, atau periksa batas kuota Google. Jangan membuat key dari project orang lain.
 
-## Ikon PWA tidak muncul
+## Semua key cooldown atau mati
 
-Pastikan `public/icon-192.png` dan `public/icon-512.png` ada, dapat diakses pada `/icon-192.png` dan `/icon-512.png`, lalu cek manifest.
+Slot 401/403 ditandai **mati**. Slot 429 menjadi **cooldown**. Tunggu, tes ulang, dan pastikan minimal satu key benar. Pesan error aplikasi meredaksi key; jangan menyalin key ke laporan.
 
-## API key atau model tidak tersedia
+## Gambar tidak terbentuk
 
-Jalankan preflight lagi, buat key baru di Google AI Studio, dan pastikan Gemini API aktif. Model dapat berubah atau tidak tersedia pada project/region tertentu. Aplikasi mencoba fallback model dan menyamarkan key pada error.
+Model gambar berada di `IMAGE_MODELS` pada `client/src/lib/promoPack.ts` agar mudah diperbarui. Nama model dapat berubah, kuota gambar dapat habis, atau filter dapat memblokir permintaan. Coba lagi dengan bahan yang berhak Anda gunakan dan prompt yang faktual.
 
-## Build gagal karena Node
+## Produk berbeda pada frame
 
-Gunakan Node.js 20 atau lebih baru dan jalankan `pnpm install` ulang. Hapus `node_modules` dan `pnpm-lock.yaml` hanya bila lockfile benar-benar konflik, lalu ulangi install.
+Periksa kunci produk, bentuk, warna, teks label, dan logo pada setiap frame sebelum dipakai. Aplikasi membawa frame sebelumnya ke permintaan berikutnya, tetapi model gambar tetap dapat salah. Buat ulang frame yang bermasalah dan jangan gunakan frame yang mengubah identitas produk.
+
+## Ikon PWA atau versi lama
+
+Cek `/icon-192.png`, `/icon-512.png`, dan manifest. Untuk versi lama, buka DevTools → Application, unregister service worker, lalu reload. Naikkan `CACHE_NAME` pada service worker saat merilis versi baru.
+
+## Build gagal
+
+Gunakan Node.js 20 atau lebih baru, lalu jalankan `pnpm install && pnpm check && pnpm build`. Pastikan tidak ada API key dalam source atau environment build.
 
 ## Cek hasil
 
-Jalankan `pnpm install && pnpm check && pnpm build`. Periksa folder `dist/public` berisi `index.html`, aset JavaScript/CSS, manifest, redirect, dan ikon.
+Build harus menghasilkan `dist/public/index.html`, aset JavaScript/CSS, manifest, service worker, dan ikon. Refresh route pada deployment Workers juga harus tetap menampilkan aplikasi.
 
 ## Kalau gagal
 
-Simpan pesan error tanpa API key, cek versi dengan `node --version` dan `pnpm --version`, lalu ulangi langkah terkait. Jangan mengunggah log yang berisi key atau data gambar.
+Simpan hanya pesan yang sudah bebas key dan data gambar. Catat status HTTP, model, dan waktu kejadian, lalu periksa dokumentasi Google AI Studio. Jangan mengunggah API key.

@@ -19,7 +19,7 @@ Gunakan GitHub Mobile untuk membuat repo dan aplikasi editor yang mendukung Git.
 
 ## Cek hasil
 
-Buka halaman repo dan pastikan `client/`, `docs/`, `CHANGELOG.md`, `wrangler.jsonc`, dan `public/_redirects` terlihat. Pastikan tidak ada `.exe`, `desktop/`, atau `legacy_release_0.3.1/`.
+Buka halaman repo dan pastikan `client/`, `docs/`, `CHANGELOG.md`, `wrangler.jsonc` terlihat dan konfigurasi Workers tersedia. Pastikan tidak ada `.exe`, `desktop/`, atau `legacy_release_0.3.1/`.
 
 ## Kalau gagal
 

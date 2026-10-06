@@ -1,10 +1,14 @@
 # Changelog
 
+## 2.0.0 — 2026-10-06
+
+- Menambahkan `geminiClient.ts` dengan `postGemini`, `GeminiError`, dan `KeyPool` maksimum lima key, rotasi, status, cooldown 429, serta redaksi key.
+- Mengganti kontrak `promoPack.ts` ke `pool` dan `motionId`, menambahkan `product_lock`, prompt frame awal/akhir, dan `generateKeyframes`.
+- Menambahkan `motionPresets.ts` dengan preset Faceless serta preset Dengan aktor termasuk Joget.
+- Menambahkan UI lima slot key, tes key, peringatan kuota per project, dua jalur prompt, kartu kunci produk, dan galeri frame bertahap.
+- Menyesuaikan panduan untuk Google Flow/Veo, CapCut/Canva, konsistensi label/logo, cooldown, RESOURCE_EXHAUSTED, dan Workers Static Assets.
+- Menghapus `_redirects` sesuai deployment Workers. Tidak ada backend, database, API key repo, atau environment build.
+
 ## 1.0.0 — 2026-10-06
-- Mengganti generator lama dengan `client/src/lib/promoPack.ts` dan schema JSON tervalidasi.
-- Menambahkan preflight koneksi Gemini, fallback model, redaksi API key, serta ekstraksi frame video.
-- Menyusun wizard UI 4 langkah: bahan visual, detail produk, pengaturan, dan hasil.
-- Menambahkan tab prompt EN/ID/Extend, overlay, copywriting, voice over, kepatuhan, dan ekspor Markdown.
-- Membersihkan plugin Manus, server Express, proxy storage, aset debug, desktop, installer, dan legacy release.
-- Mengubah PWA ke ikon lokal, service worker network-first, redirect SPA, serta dokumentasi deployment.
-- Perbaikan minimal pada modul inti: konteks strategi promosi diteruskan sebagai `promotionStrategy`; pesan error Gemini dibuat ramah Bahasa Indonesia dan tetap meredaksi key.
+
+- Rilis awal web/PWA statis Affiliate Promo Studio.

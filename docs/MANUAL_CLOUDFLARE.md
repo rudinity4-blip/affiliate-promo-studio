@@ -20,4 +20,4 @@ Buka URL `pages.dev`, lakukan refresh pada route aplikasi, cek ikon PWA, dan pas
 
 ## Kalau gagal
 
-Periksa output directory, Node 20, build command, dan isi log deployment. Bila refresh menghasilkan 404, pastikan `public/_redirects` ikut masuk ke hasil build.
+Periksa output directory, Node 20, build command, dan isi log deployment. Bila refresh menghasilkan 404, pastikan `wrangler.jsonc` memakai `not_found_handling: "single-page-application"`.

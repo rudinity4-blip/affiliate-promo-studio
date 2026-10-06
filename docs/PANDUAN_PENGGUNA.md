@@ -1,46 +1,37 @@
 # Panduan Pengguna
 
-## 1. Siapkan bahan
+## 1. Siapkan bahan dan key
 
-1. Buka aplikasi.
-2. Unggah gambar/video subjek atau ruang/meja minimalis.
-3. Unggah foto produk yang jelas.
-4. Pastikan Anda memiliki hak untuk memakai semua gambar.
+Unggah gambar/video subjek atau ruang/meja minimalis dan foto produk yang jelas. Pastikan semua gambar boleh Anda gunakan. Isi fakta produk, merk, dan target audiens tanpa menambahkan klaim yang belum diverifikasi.
 
-## 2. Isi fakta produk
+Masukkan satu sampai lima API key Gemini. Secara default key hanya berada di memori sesi. Opsi **Ingat di perangkat ini** menyimpan key di localStorage browser; aktifkan hanya pada perangkat pribadi dan jangan gunakan untuk komputer bersama. Tombol **Tes semua key** memeriksa slot. Status hanya menampilkan empat karakter terakhir: siap, cooldown, atau mati.
 
-Isi merk bila perlu, target audiens, dan deskripsi yang benar-benar diketahui. Jangan menulis harga, diskon, ukuran, spesifikasi, sertifikasi, manfaat kesehatan, atau performa bila tidak ada buktinya.
+> Kuota Gemini dihitung per **project** Google, bukan per key. Beberapa key dari project yang sama berbagi kuota yang sama. Gunakan key dari project berbeda milikmu sendiri sebagai cadangan, dan patuhi ketentuan layanan Google.
 
-## 3. Atur dan buat paket
+## 2. Pilih preset motion
 
-1. Pilih platform, durasi kelipatan 8 detik, rasio, nuansa, motion, dan strategi.
-2. Masukkan API key Gemini dari Google AI Studio.
-3. Tekan **Periksa koneksi**, lalu **Buat paket promosi**.
-4. Tinjau prompt EN/ID, Extend, overlay, copywriting, voice over, dan catatan kepatuhan.
-5. Unduh file `.md`.
+Preset dikelompokkan menjadi **Faceless** dan **Dengan aktor**. Faceless otomatis meminta model tidak menampilkan wajah. Preset Dengan aktor mempertahankan pilihan seperti Joget. Pilih platform, durasi kelipatan 8 detik, rasio, nuansa, dan strategi promosi, lalu tekan **Buat paket**.
 
-## 4. Pakai di Google Flow lalu CapCut/Canva
+## 3. Pilih jalur hasil
 
-1. Salin prompt EN per segmen ke generator video seperti Google Flow/Veo.
-2. Jika model mendukung, gunakan prompt **Extend** hanya sebagai aksi baru dari klip sebelumnya.
-3. Ingat bahwa tombol Extend dapat berbeda pada tiap model.
-4. Ekspor klip, susun berurutan di CapCut atau Canva.
-5. Tambahkan overlay dari tab Overlay dan cek kembali kesesuaian dengan produk.
+**A. Frame → Video** memakai frame awal dan akhir setiap segmen bersama prompt gerak. Di tab **Frame gambar**, tekan **Buat frame gambar** secara terpisah. Aplikasi menampilkan perkiraan jumlah gambar, membuat segmen + 1 frame secara berurutan, dan menyediakan tombol unduh. Frame akhir segmen menjadi frame awal segmen berikutnya.
 
-## 5. Buat voice over
+**B. Prompt mandiri** memakai `prompt_en` dan `prompt_id`. Keduanya sudah membawa kunci produk dan kontinuitas sehingga dapat ditempel langsung pada generator yang hanya menerima teks.
 
-Gunakan salah satu dari tiga naskah. Anda dapat memakai fitur suara AI yang Anda pilih sendiri atau merekam suara sendiri. Sesuaikan jeda dengan timecode/segmen dan jangan menambahkan klaim baru.
+**C. Extend** hanya berisi aksi baru lanjutan. Tombol Extend berbeda menurut model generator video, jadi cek hasil dan susunan klip secara manual.
 
-## 6. Pasang PWA di HP
+## 4. Bawa ke generator video dan editor
 
-Buka URL aplikasi di browser HP, pilih menu browser, lalu **Tambahkan ke layar utama** atau **Install app**.
+Salin frame serta prompt ke generator video pihak ketiga seperti Google Flow/Veo, lalu ekspor klip ke CapCut atau Canva. Tinjau setiap frame: bentuk produk, warna, tulisan label, dan logo harus tetap sama dengan foto sumber. Tambahkan overlay dari tab Overlay dan gunakan naskah Voice over hanya sebagai teks untuk suara AI atau rekaman sendiri. Video hasil aplikasi selalu tanpa suara.
+
+## Pasang PWA di HP
+
+Buka alamat aplikasi di browser HP, buka menu browser, lalu pilih **Tambahkan ke layar utama** atau **Install app**.
 
 ## Cek hasil
 
-- Pastikan semua segmen tersusun dan video tanpa suara.
-- Pastikan warna, bentuk, logo, dan fakta produk cocok dengan sumber.
-- Pastikan overlay terbaca di layar HP.
+Pastikan jumlah frame sama dengan jumlah segmen + 1, frame akhir dan awal tersambung, label/logo konsisten, prompt tidak menambah klaim produk, dan semua video tanpa suara.
 
 ## Kalau gagal
 
-Baca `docs/TROUBLESHOOTING.md`. Untuk error key/model, ulangi preflight dan cek `docs/MANUAL_GEMINI_API_KEY.md`.
+Baca `docs/TROUBLESHOOTING.md` untuk cooldown, model gambar, atau masalah konsistensi. Untuk key baca `docs/MANUAL_GEMINI_API_KEY.md`.
