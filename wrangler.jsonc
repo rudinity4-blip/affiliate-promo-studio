@@ -1,0 +1,6 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "affiliate-promo-studio",
+  "compatibility_date": "2026-10-06",
+  "assets": { "directory": "./dist/public", "not_found_handling": "single-page-application" }
+}
