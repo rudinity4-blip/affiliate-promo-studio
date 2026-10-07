@@ -35,3 +35,11 @@ Pastikan jumlah frame sama dengan jumlah segmen + 1, frame akhir dan awal tersam
 ## Kalau gagal
 
 Baca `docs/TROUBLESHOOTING.md` untuk cooldown, model gambar, atau masalah konsistensi. Untuk key baca `docs/MANUAL_GEMINI_API_KEY.md`.
+
+## Mode Tiru format video referensi
+
+Pilih video pendek yang jelas, idealnya 8–30 detik, satu gaya visual, dan memiliki shot yang mudah dibaca. Centang bahwa Anda berhak memakai video tersebut, lalu tekan **Analisis video referensi**. Analisis dilakukan di browser; video tidak diunggah ke server aplikasi. Video di atas 15 MB diproses sebagai cuplikan frame bertimestamp.
+
+Tabel hasil dapat diedit: waktu, jenis shot, kamera, aksi, komposisi, transisi, setting, pencahayaan, warna, tempo, dan gaya overlay. Pilih **Ikuti subjek** agar wajah mengikuti bahan subjek Anda atau **Faceless** agar wajah tidak ditampilkan.
+
+Yang ditiru hanya struktur scene, pacing, jenis shot, gerak kamera, komposisi, pencahayaan, dan gaya teks overlay. Jangan menyalin wajah, musik, logo, kata-kata di layar, dialog, lirik, atau klaim video referensi. Prompt membantu meniru format, tetapi generator video tetap dapat menghasilkan variasi dan tidak menjamin kemiripan persis.

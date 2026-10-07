@@ -1,4 +1,12 @@
 # Changelog
+## 3.0.0 — 2026-10-07
+
+- Menambahkan `referenceVideo.ts` untuk menganalisis struktur video referensi di browser dengan inline video atau cuplikan frame bertimestamp untuk file di atas 15 MB.
+- Menambahkan mode UI **Tiru video referensi**, persetujuan hak penggunaan, pilihan Ikuti subjek/Faceless, dan durasi otomatis kelipatan 8 detik maksimal 32 detik.
+- Menambahkan editor shot yang dapat mengubah waktu, jenis shot, kamera, aksi, komposisi, transisi, setting, pencahayaan, warna, pacing, dan gaya overlay.
+- Menggabungkan struktur referensi ke prompt promo, kartu struktur per segmen, dan mempertahankan jalur Frame → Video, Prompt mandiri, Extend, serta frame gambar.
+- Menegaskan batasan bahwa identitas, wajah, musik, logo, teks layar, dialog, lirik, dan klaim referensi tidak disalin.
+
 
 ## 2.0.0 — 2026-10-06
 

@@ -35,3 +35,19 @@ Build harus menghasilkan `dist/public/index.html`, aset JavaScript/CSS, manifest
 ## Kalau gagal
 
 Simpan hanya pesan yang sudah bebas key dan data gambar. Catat status HTTP, model, dan waktu kejadian, lalu periksa dokumentasi Google AI Studio. Jangan mengunggah API key.
+
+## Video referensi tidak terbaca
+
+Gunakan MP4, MOV, atau WEBM yang dapat diputar browser. Coba video yang lebih pendek atau ekspor ulang dengan codec umum. Pastikan file tidak rusak dan izin penggunaan sudah Anda miliki.
+
+## Analisis referensi kosong atau gagal
+
+Pastikan persetujuan referensi dicentang dan minimal satu API key Gemini aktif. Untuk file di atas 15 MB, aplikasi memakai cuplikan frame. Jika model tidak tersedia, coba lagi setelah memeriksa model Gemini dan kuota project.
+
+## Durasi referensi terlalu panjang
+
+Aplikasi membatasi paket ke maksimum 32 detik dan membagi hasil ke jendela 8 detik. Shot di luar 32 detik tidak dipakai. Edit tabel shot bila analisis menggabungkan potongan terlalu pendek.
+
+## Hasil terlalu mirip dengan referensi
+
+Tinjau prompt dan hapus detail identitas yang tidak perlu. Mode ini hanya boleh meniru format; jangan gunakan wajah, logo, musik, teks layar, dialog, atau klaim dari video sumber.

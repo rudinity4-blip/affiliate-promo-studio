@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { GeminiError, KeyPool, postGemini } from "./geminiClient";
 import { FACELESS_RULE, getPreset } from "./motionPresets";
+import type { ReferenceAnalysis } from "./referenceVideo";
 
 export const PromoPackSchema = z.object({
   observations: z.object({ subject: z.string(), scene: z.string(), product: z.string() }),
@@ -42,7 +43,9 @@ export type PackOptions = {
   totalSeconds: number;
   aspectRatio: string; // "9:16"
   tone: string;
-  motionId: string; // id dari MOTION_PRESETS
+  motionId: string; // id dari MOTION_PRESETS (diabaikan bila reference diisi)
+  reference?: ReferenceAnalysis; // mode "tiru format video referensi"
+  faceless?: boolean; // hanya berlaku di mode reference; default false = wajah mengikuti subjek
 };
 
 const MODELS = ["gemini-3.5-flash-lite", "gemini-3.5-flash"]; // sama dengan app v0.4
@@ -55,15 +58,36 @@ export function planSegments(total: number) {
   return out;
 }
 
+/** Bagi struktur referensi ke jendela 8 detik; tiap jendela memuat shot referensi yang beririsan. */
+export function referencePlan(ref: ReferenceAnalysis, maxSeconds = 32) {
+  const total = Math.min(Math.ceil(ref.duration_seconds), maxSeconds);
+  const out: { start: number; end: number; shots: ReferenceAnalysis["shots"] }[] = [];
+  for (let s = 0; s < total; s += SEGMENT_SECONDS) {
+    const e = Math.min(s + SEGMENT_SECONDS, total);
+    out.push({ start: s, end: e, shots: ref.shots.filter((x) => x.end > s && x.start < e) });
+  }
+  return out;
+}
+
 function buildInstruction(o: PackOptions) {
+  const ref = o.reference;
   const preset = getPreset(o.motionId);
-  const plan = planSegments(o.totalSeconds)
-    .map((p, i) => `Segment ${i + 1}: ${p.start}-${p.end}s | beat: ${preset.beats[i % preset.beats.length]} | max ${Math.round((p.end - p.start) * WORDS_PER_SECOND)} words voiceover`)
-    .join("\n");
+  const faceless = ref ? !!o.faceless : preset.faceless;
+  const words = (p: { start: number; end: number }) => Math.round((p.end - p.start) * WORDS_PER_SECOND);
+  const plan = ref
+    ? referencePlan(ref, o.totalSeconds)
+        .map((p, i) => `Segment ${i + 1}: ${p.start}-${p.end}s | reference shots: ${p.shots.map((x) => `[${x.start}-${x.end}s ${x.shot_type}; camera ${x.camera}; action ${x.action}; composition ${x.composition}; transition ${x.transition_out}]`).join(" ")} | max ${words(p)} words voiceover`)
+        .join("\n")
+    : planSegments(o.totalSeconds)
+        .map((p, i) => `Segment ${i + 1}: ${p.start}-${p.end}s | beat: ${preset.beats[i % preset.beats.length]} | max ${words(p)} words voiceover`)
+        .join("\n");
+  const motionLine = ref
+    ? `REFERENCE-FORMAT MODE: recreate the scene format of a reference video (summary: ${ref.summary}; setting: ${ref.setting}; lighting: ${ref.lighting}; color/style: ${ref.color_style}; pacing: ${ref.pacing}; on-screen text style: ${ref.text_overlay_style}). Follow each segment's reference shot list (shot type, camera movement, action beats, composition, transitions, timing) but REPLACE the reference's person with the user's subject (SUBJECT REFERENCE image) and the reference's product with the user's product (PRODUCT REFERENCE image). Never copy the reference person's likeness, brand logos, on-screen words, music, or claims. When a segment has several shots, write prompt_en as a timestamped multi-shot prompt (e.g. "0-2s: ...; 2-5s: ...").`
+    : `Motion preset: ${preset.label} - ${preset.description}`;
   return `You create a promo content pack for a short affiliate video. Return ONLY valid JSON, no markdown.
 Platform: ${o.platform}. Aspect ratio: ${o.aspectRatio}. Total: ${o.totalSeconds}s. Tone: ${o.tone}.
-Motion preset: ${preset.label} - ${preset.description}
-${preset.faceless ? `FACELESS RULE: ${FACELESS_RULE}` : ""}
+${motionLine}
+${faceless ? `FACELESS RULE: ${FACELESS_RULE}` : ""}
 Brand: ${o.brand || "(none)"}. Audience: ${o.audience || "(general)"}.
 Product description from user (the ONLY source of product facts): ${o.productDescription || "(none)"}.
 Segment plan:\n${plan}
