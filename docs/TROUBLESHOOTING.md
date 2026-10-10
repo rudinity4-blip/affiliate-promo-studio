@@ -67,3 +67,15 @@ Jika sisi terpendek foto di bawah 800 px, aplikasi menampilkan peringatan. Gunak
 ## Kit atau laporan tidak terbaca
 
 Kit harus diawali `PROMO-KIT v1.3` dan laporan harus diawali `PROMO-REPORT v1.3`, masing-masing diikuti satu blok JSON. Jangan menempel API key, gambar, atau base64.
+
+## Bahasa prompt
+
+Bahasa Indonesia adalah default dan belum teruji sama baiknya pada semua model. Jika prompt sulit dipahami generator, pilih Inggris di Langkah 3.
+
+## Kredit dan resolusi
+
+Angka kredit Omni di aplikasi adalah perkiraan dari halaman bantuan Flow. Draf 360p hanya untuk Omni. 1080p dan 4K dilakukan melalui upscale di Flow, bukan generate asli pada aplikasi.
+
+## Rute menu tidak berubah
+
+Gunakan URL hash seperti `#/panduan` atau kembali ke `#/`. Aplikasi tidak membutuhkan konfigurasi server khusus untuk rute tersebut.

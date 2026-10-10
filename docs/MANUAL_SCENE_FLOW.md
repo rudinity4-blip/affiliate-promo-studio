@@ -24,3 +24,9 @@ Veo 3.1 Lite mendukung 4/6/8 detik; mode Ingredients dibatasi 8 detik. Omni Flas
 ## Kit dan laporan
 
 Kit hanya teks, tidak berisi API key, gambar, atau base64. Salin atau unduh Kit dari hasil. Laporan diawali `PROMO-REPORT v1.3`, lalu JSON dengan status `ok`, `ulang`, atau `gagal` dan similarity 1–5.
+
+## Pengaturan v7
+
+Prompt default memakai Bahasa Indonesia agar mudah diedit. Pilih Inggris bila hasil model kurang baik. Gunakan target 720p untuk unduhan langsung; 1080p dan 4K adalah upscale di antarmuka Flow sesuai paket akun. Draf 360p hanya tersedia untuk Omni.
+
+Nama folder dan file memakai token `{proyek}`, `{no}`, `{model}`, `{durasi}`, dan `{tanggal}`. Kit v1.4 membawa konfigurasi ini ke Tool Scene Runner tanpa API key atau gambar.

@@ -1,4 +1,12 @@
 # Changelog
+## 7.0.0 — 2026-10-10
+
+- Memperbarui `scenePack.ts` dengan batas referensi model, estimasi kredit Omni, target unduhan, draf 360p, bahasa prompt, dan penamaan aset.
+- Mengubah UI menjadi halaman per menu berbasis hash dengan drawer/sidebar, wizard empat langkah, Proyek, Aset, Pengaturan, Riwayat, Panduan, dan Tentang.
+- Menambahkan Kit/Laporan v1.4 dengan kompatibilitas impor v1.3.
+- Menambahkan prompt Indonesia default, pilihan Inggris, preview penamaan, catatan upscale, dan pengaturan kredit.
+- Mempertahankan mode video referensi, format otomatis, slot produk, overlay, dan alur Scene Pack tahap 6.
+
 ## 6.0.0 — 2026-10-10
 
 - Menambahkan `adFormats.ts` untuk format iklan otomatis dari kombinasi aktor/ruang dan fashion/produk umum.

@@ -51,3 +51,11 @@ Pilih jenis subjek dan produk untuk mendapatkan format otomatis. Format fashion 
 Scene Pack menampilkan durasi yang didukung Flow, pola **Seimbang** atau **Maksimal**, serta mode overlay. Kerjakan scene secara terpisah di Flow dan rakit di Scenebuilder. Gunakan **Salin Kit** atau **Unduh Kit .txt** untuk format `PROMO-KIT v1.3`; Kit tidak berisi API key, gambar, atau base64.
 
 Laporan hasil dapat ditempel dalam format `PROMO-REPORT v1.3`. Skor similarity rendah menampilkan tombol perbaikan prompt scene terkait. Tinjau hasil manual karena generator dapat mengubah detail produk, teks overlay, atau gerakan.
+
+## Tahap 7: menu, wizard, Kit v1.4, dan unduhan
+
+Aplikasi kini memakai rute hash: `#/` untuk Buat Scene Pack, `#/proyek`, `#/aset`, `#/pengaturan`, `#/riwayat`, `#/panduan`, dan `#/tentang`. Drawer menutup setelah memilih menu. Wizard menyimpan data selama berpindah menu dan terdiri dari Aset, Format, Pengaturan, dan Hasil.
+
+Pengaturan mencakup lima slot API key, model default, pola durasi, overlay, bahasa prompt, target unduhan, serta templat nama folder/file. Kit diawali `PROMO-KIT v1.4` dan laporan diawali `PROMO-REPORT v1.4`; v1.3 masih dapat diimpor dengan nilai bawaan. Jangan menaruh API key, gambar, atau base64 ke dalam Kit/Laporan.
+
+Tool Scene Runner dapat memakai Kit untuk menjalankan scene satu per satu: pilih aset, tempel Kit, jalankan tiap scene, nilai similarity, buat Paket Proyek, lalu tempel Laporan kembali. Tool eksternal tidak menjadi backend aplikasi ini.
