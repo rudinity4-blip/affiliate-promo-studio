@@ -1,4 +1,13 @@
 # Changelog
+## 6.0.0 — 2026-10-10
+
+- Menambahkan `adFormats.ts` untuk format iklan otomatis dari kombinasi aktor/ruang dan fashion/produk umum.
+- Menambahkan `scenePack.ts` untuk model Veo 3.1 Lite dan Omni Flash, mode Flow, pola durasi, overlay, ingredients, dan aturan sisi produk.
+- Menambahkan builder Scene Pack mobile-first dengan burger drawer, slot produk depan/samping/atas, resolusi foto, dan format pilihan.
+- Menambahkan `kit.ts` dengan ekspor/impor `PROMO-KIT v1.3` dan `PROMO-REPORT v1.3` tervalidasi zod.
+- Menambahkan Salin/Unduh Kit, impor laporan, skor similarity, dan perbaikan prompt scene.
+- Mempertahankan mode video referensi tahap 3 dan meneruskan ringkasannya ke prompt Scene Pack.
+
 ## 3.0.0 — 2026-10-07
 
 - Menambahkan `referenceVideo.ts` untuk menganalisis struktur video referensi di browser dengan inline video atau cuplikan frame bertimestamp untuk file di atas 15 MB.

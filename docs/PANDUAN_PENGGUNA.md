@@ -43,3 +43,11 @@ Pilih video pendek yang jelas, idealnya 8–30 detik, satu gaya visual, dan memi
 Tabel hasil dapat diedit: waktu, jenis shot, kamera, aksi, komposisi, transisi, setting, pencahayaan, warna, tempo, dan gaya overlay. Pilih **Ikuti subjek** agar wajah mengikuti bahan subjek Anda atau **Faceless** agar wajah tidak ditampilkan.
 
 Yang ditiru hanya struktur scene, pacing, jenis shot, gerak kamera, komposisi, pencahayaan, dan gaya teks overlay. Jangan menyalin wajah, musik, logo, kata-kata di layar, dialog, lirik, atau klaim video referensi. Prompt membantu meniru format, tetapi generator video tetap dapat menghasilkan variasi dan tidak menjamin kemiripan persis.
+
+## Scene Pack, format otomatis, dan Kit Flow v1.3
+
+Pilih jenis subjek dan produk untuk mendapatkan format otomatis. Format fashion memakai aktor; format ruang memakai tangan dan meja. Foto Produk (samping) atau Produk (atas) hanya diperlukan bila model boleh memperlihatkan sisi tersebut. Tanpa foto sisi, produk tidak boleh diputar atau dimiringkan untuk memperlihatkan bagian yang tidak tersedia.
+
+Scene Pack menampilkan durasi yang didukung Flow, pola **Seimbang** atau **Maksimal**, serta mode overlay. Kerjakan scene secara terpisah di Flow dan rakit di Scenebuilder. Gunakan **Salin Kit** atau **Unduh Kit .txt** untuk format `PROMO-KIT v1.3`; Kit tidak berisi API key, gambar, atau base64.
+
+Laporan hasil dapat ditempel dalam format `PROMO-REPORT v1.3`. Skor similarity rendah menampilkan tombol perbaikan prompt scene terkait. Tinjau hasil manual karena generator dapat mengubah detail produk, teks overlay, atau gerakan.

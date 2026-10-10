@@ -51,3 +51,19 @@ Aplikasi membatasi paket ke maksimum 32 detik dan membagi hasil ke jendela 8 det
 ## Hasil terlalu mirip dengan referensi
 
 Tinjau prompt dan hapus detail identitas yang tidak perlu. Mode ini hanya boleh meniru format; jangan gunakan wajah, logo, musik, teks layar, dialog, atau klaim dari video sumber.
+
+## Produk berubah atau diputar
+
+Gunakan foto produk depan yang jelas. Tambahkan foto samping/atas hanya bila sisi tersebut memang boleh ditampilkan. Tanpa foto tambahan, prompt melarang rotasi atau kemiringan untuk memperlihatkan sisi yang tidak terlihat.
+
+## Teks overlay salah eja
+
+Gunakan mode Ruang kosong dan tambahkan teks di editor video. Mode Lewat prompt bersifat eksperimental dan otomatis dialihkan ke Ruang kosong pada Veo. Selalu cek ejaan pada hasil.
+
+## Foto produk kecil
+
+Jika sisi terpendek foto di bawah 800 px, aplikasi menampilkan peringatan. Gunakan foto lebih besar agar detail, warna, dan logo lebih akurat.
+
+## Kit atau laporan tidak terbaca
+
+Kit harus diawali `PROMO-KIT v1.3` dan laporan harus diawali `PROMO-REPORT v1.3`, masing-masing diikuti satu blok JSON. Jangan menempel API key, gambar, atau base64.
