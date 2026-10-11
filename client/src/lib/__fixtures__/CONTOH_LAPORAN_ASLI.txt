@@ -1,0 +1,105 @@
+PROMO-REPORT v1.4
+{
+  "project": "Tumbler-Hitam",
+  "promptLang": "id",
+  "delivery": "720p",
+  "draft": false,
+  "naming": {
+    "folder": "{proyek}_{tanggal}",
+    "file": "{proyek}_scene-{no}"
+  },
+  "scenes": [
+    {
+      "id": 1,
+      "status": "ok",
+      "similarity": 4,
+      "note": "",
+      "videoMediaId": "175806ee-423c-435e-b7b1-4b45a2d1d484",
+      "resolution": "720p"
+    },
+    {
+      "id": 2,
+      "status": "ok",
+      "similarity": 4,
+      "note": "",
+      "videoMediaId": "e38ae71b-be9c-430c-9bee-acdf9bb01d27",
+      "resolution": "720p"
+    }
+  ]
+}
+{
+  "kit": {
+    "project": "Tumbler-Hitam",
+    "ratio": "9:16",
+    "model": "omni-flash-1.1",
+    "overlayMode": "space",
+    "promptLang": "id",
+    "delivery": "720p",
+    "draft": false,
+    "naming": {
+      "folder": "{proyek}_{tanggal}",
+      "file": "{proyek}_scene-{no}"
+    },
+    "slots": [
+      "produk-depan",
+      "ruang"
+    ],
+    "scenes": [
+      {
+        "id": 1,
+        "seconds": 8,
+        "mode": "ingredients",
+        "slots": [
+          "produk-depan",
+          "ruang"
+        ],
+        "prompt": "Tangan membawa tumbler hitam dari foto produk ke dalam frame dan memegangnya diam di atas meja bundar putih dari foto ruang, bagian depan tumbler menghadap kamera. Kamera diam, cahaya siang lembut. Hanya tangan yang terlihat, tanpa wajah. Jangan putar atau miringkan tumbler. Kosongkan 15% bagian atas dan 25% bagian bawah frame; tumbler dan tangan berada di 60% bagian tengah. Tanpa suara, tanpa dialog, tanpa musik. Tanpa teks, tanpa watermark.",
+        "startFramePrompt": "",
+        "endFramePrompt": "",
+        "overlay": [
+          {
+            "t": "0-3s",
+            "text": "Tumbler simpel"
+          }
+        ],
+        "vo": "Tumbler hitam yang simpel, cocok dibawa ke mana saja."
+      },
+      {
+        "id": 2,
+        "seconds": 8,
+        "mode": "ingredients",
+        "slots": [
+          "produk-depan",
+          "ruang"
+        ],
+        "prompt": "Meja dan cahaya yang sama. Tangan meletakkan tumbler hitam dari foto produk di samping vas tulip merah muda, bagian depan tetap menghadap kamera, lalu tangan keluar dari frame. Kamera diam. Hanya tangan yang terlihat, tanpa wajah. Jangan putar atau miringkan tumbler. Kosongkan 15% bagian atas dan 25% bagian bawah frame; tumbler dan tangan berada di 60% bagian tengah. Tanpa suara, tanpa dialog, tanpa musik. Tanpa teks, tanpa watermark.",
+        "startFramePrompt": "",
+        "endFramePrompt": "",
+        "overlay": [
+          {
+            "t": "8-11s",
+            "text": "Rapi di meja"
+          }
+        ],
+        "vo": "Letakkan di meja, tampilannya tetap rapi dan simpel."
+      }
+    ]
+  },
+  "results": {
+    "1": {
+      "status": "ok",
+      "similarity": 4,
+      "note": "",
+      "videoMediaId": "175806ee-423c-435e-b7b1-4b45a2d1d484",
+      "resolution": "720p"
+    },
+    "2": {
+      "status": "ok",
+      "similarity": 4,
+      "note": "",
+      "videoMediaId": "e38ae71b-be9c-430c-9bee-acdf9bb01d27",
+      "resolution": "720p"
+    }
+  },
+  "savedAt": "2026-10-10T11:55:34.219Z"
+}

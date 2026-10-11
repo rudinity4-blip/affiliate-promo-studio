@@ -37,3 +37,12 @@
 ## 1.0.0 — 2026-10-06
 
 - Rilis awal web/PWA statis Affiliate Promo Studio.
+
+## V7 Paket Eksekusi — 2026-10-11
+
+- Mengintegrasikan modul `flowKit.ts` dari paket resmi v7 untuk Kit/Laporan v1.3/v1.4, toleransi blok JSON keadaan, `scenesToFix`, dan `kitTooLarge`.
+- Menambahkan fixture `KIT_SCENE_TUMBLER.txt` serta `CONTOH_LAPORAN_ASLI.txt`.
+- Menambahkan Vitest, skrip `pnpm test`, dan uji kontrak v7 untuk planner, format, kredit, penamaan, parser, fixture Tool, dan round-trip Kit.
+- Menambahkan `version.json` otomatis pada output Vite dengan commit SHA dan waktu build.
+- Menambahkan Wrangler sebagai devDependency untuk quality gate `deploy --dry-run`.
+- Memperbaiki UI agar menggunakan parser hasil `flowKit` yang mengembalikan hasil tervalidasi `{ ok, data, version }`.

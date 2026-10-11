@@ -180,7 +180,9 @@ export async function generatePromoPack(o: PackOptions): Promise<PromoPack> {
 }
 
 // ---------- Frame gambar (opsional) untuk image-to-video ----------
-const IMAGE_MODELS = ["gemini-2.5-flash-image", "gemini-3.1-flash-image-preview"]; // verifikasi di AI Studio; nama bisa berubah
+// Halaman harga resmi Gemini API (Okt 2026): SEMUA model gambar = Free Tier "Not available" (butuh key dengan billing).
+// Harga per gambar 1K: lite ~$0.034, flash-image ~$0.067. Nama model bisa berubah; cek ai.google.dev/gemini-api/docs/pricing.
+export const IMAGE_MODELS = ["gemini-3.1-flash-lite-image", "gemini-3.1-flash-image"];
 
 export type KeyframeOptions = { pool: KeyPool; subjectFile: File; productFile: File; aspectRatio: string };
 
@@ -195,7 +197,10 @@ async function generateImage(pool: KeyPool, parts: unknown[]): Promise<string> {
       lastErr = e;
     }
   }
-  throw lastErr;
+  const detail = lastErr instanceof Error ? lastErr.message : String(lastErr);
+  throw new Error(
+    `Gambar tidak terbentuk. Model gambar Gemini API tidak tersedia di tier gratis (butuh key dengan billing aktif). Alternatif gratis: buat frame manual di Google Flow atau aplikasi Gemini memakai prompt frame di hasil. Detail: ${detail}`,
+  );
 }
 
 /** Hasil: [awal S1, akhir S1 (= awal S2), akhir S2, ...] sebagai data URL. Jumlah = segmen + 1. */
